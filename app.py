@@ -5,7 +5,6 @@ with open("model.pkl","rb") as file:
     model=pickle.load(file)
 
 st.title("Student Performance Predictor")
-st.write("Developed by Rajesh G R")
 
 hoursStudied=st.number_input("Hours Studied", min_value=0.0)
 attendance=st.number_input("Attendance(%)", min_value=0.0, max_value=100.0)
@@ -16,3 +15,6 @@ if st.button("Predict Score"):
     data=np.array([[hoursStudied,attendance,previousMarks,sleepHours]])
     prediction=model.predict(data)
     st.success(f"Predicted Score:{prediction[0]:.2f}")
+
+st.markdown("---")
+st.caption("Developed by Rajesh G R")
